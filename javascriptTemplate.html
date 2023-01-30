@@ -1,0 +1,125 @@
+<!-- SWIPER -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<!-- SWIPER -->
+
+<!-- TESTIMONIAL SLIDER 01 -->
+<script>
+    const idName___01="swiperTestimonial___01";
+    const sliderContainerTestimonial01 = document.getElementsByClassName("sliderTestimonial01")[0];
+    let itemsSliderContainerTestimonial01 = [];
+    itemsSliderContainerTestimonial01 = sliderContainerTestimonial01.querySelectorAll(".c-column");
+    
+    const swiperTestimonial01 = document.createElement("div");
+    swiperTestimonial01.classList.add("swiper");
+    swiperTestimonial01.setAttribute("id", idName___01)
+
+    const swiperWrapperTestimonial01 = document.createElement("div");
+    swiperWrapperTestimonial01.classList.add("swiper-wrapper");
+
+    for(let i=0; i<itemsSliderContainerTestimonial01.length; i++)
+    {
+        itemsSliderContainerTestimonial01[i].classList.add("swiper-slide");
+        itemsSliderContainerTestimonial01[i].classList.remove("c-column");
+        itemsSliderContainerTestimonial01[i].classList.remove("c-wrapper");
+        swiperWrapperTestimonial01.appendChild(itemsSliderContainerTestimonial01[i]);
+    }    
+
+    swiperTestimonial01.appendChild(swiperWrapperTestimonial01);
+    sliderContainerTestimonial01.appendChild(swiperTestimonial01);
+
+    /* add pagination and arrows*/
+    const paginationTestimonial01 = document.createElement("div");
+    paginationTestimonial01.classList.add("paginationTestimonial01");
+    paginationTestimonial01.classList.add("swiper-pagination");
+
+    const buttonNextTestimonial01 = document.createElement("div");
+    buttonNextTestimonial01.classList.add("buttonNextTestimonial01");
+    buttonNextTestimonial01.classList.add("swiper-button-next");
+
+    const buttonPrevTestimonial01 = document.createElement("div");
+    buttonPrevTestimonial01.classList.add("buttonPrevTestimonial01");
+    buttonPrevTestimonial01.classList.add("swiper-button-prev");
+
+    swiperTestimonial01.appendChild(paginationTestimonial01);
+    swiperTestimonial01.appendChild(buttonNextTestimonial01);
+    swiperTestimonial01.appendChild(buttonPrevTestimonial01);
+    /* add pagination and arrows*/
+    
+    /* adding swiper slider */
+    const objSwiperWrapperTestimonial01= new Swiper('#'+idName___01, {
+        loop: true,
+        pagination: {
+            el: '.swiper-pagination',
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        }
+    });
+    /* adding swiper slider */    
+
+</script>
+<style>
+    #swiperTestimonial___01 .swiper {
+        width: 100%;
+        height: auto;
+    }
+    #swiperTestimonial___01 .swiper-slide 
+    {
+        padding-left: 80px;
+        padding-right: 80px;
+        padding-bottom: 80px;
+    }
+
+    #swiperTestimonial___01 .c-image-feature
+    {
+        width: 80% !important;
+        max-width: 300px !important;
+        margin: auto !important;
+    }
+
+</style>
+<!-- TESTIMONIAL SLIDER 01 -->
+
+<!-- TYPEWRITER TEXT EFFECT -->
+<script>
+let text="content of text here";
+let delay=50;
+let currentChar=1;
+let destination="[not defined]";
+
+function type()
+{
+    let dest=destination;
+    if (dest)
+    {
+      dest.innerHTML=text.substr(0, currentChar);
+      currentChar++
+      if (currentChar>text.length)
+      {
+        currentChar=1;
+        setTimeout("type()", 5000);
+      }
+      else
+      {
+        setTimeout("type()", delay);
+      }
+    }
+}
+function startTyping(textParam, delayParam, objDest)
+{
+  text=textParam;
+  delay=delayParam;
+  currentChar=1;
+  destination=objDest;
+  type();
+}
+
+//startTyping(text, 50, "textDestination");
+
+let containerTypeDestination = 
+
+
+</script>
+<!-- TYPEWRITER TEXT EFFECT -->

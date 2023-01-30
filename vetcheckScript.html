@@ -1,0 +1,172 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Ubuntu:wght@300;400;700&display=swap');
+</style>
+
+
+
+<!-- FAQ DROP ITEMS -->
+<script>
+    let itemsFaqs = document.getElementsByClassName("customFaqItem");
+    for (let i = 0; i < itemsFaqs.length; i++) {
+        itemsFaqs[i].classList.add("customFaqItemClose");
+        itemsFaqs[i].addEventListener("click", function () {
+
+            if (itemsFaqs[i].classList.contains('customFaqItemClose')) {
+                itemsFaqs[i].classList.remove('customFaqItemClose');
+            } else {
+                itemsFaqs[i].classList.add('customFaqItemClose');
+            }
+
+        });
+    }
+</script>
+<!-- FAQ DROP ITEMS -->
+
+<!-- FOR ANIMATIONS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script>
+
+    let elementsArray = document.querySelectorAll(
+        "#app .c-section:not(:last-child)"
+    );
+
+    window.addEventListener("scroll", fadeIn);
+    function fadeIn() {
+        for (var i = 0; i < elementsArray.length; i++) {
+            var elem = elementsArray[i];
+            var distInView =
+                elem.getBoundingClientRect().top - window.innerHeight + 150;
+
+            if (distInView < 0) {
+
+                elem.classList.add("inView");
+
+                let animateLeftElements = elem.querySelectorAll(".animate-left");
+                animationLeftClassAdd(animateLeftElements);
+
+                let animateRightElements = elem.querySelectorAll(".animate-right");
+                animationRightClassAdd(animateRightElements);
+
+                let animateZoomElements = elem.querySelectorAll(".animate-zoom");
+                animationZoomClassAdd(animateZoomElements);
+                
+                let animateFadeInDownElements = elem.querySelectorAll(".animate-FadeInDown");
+                animationFadeInDownClassAdd(animateFadeInDownElements);
+
+                let animateFadeInUpElements = elem.querySelectorAll(".animate-FadeInUp");
+                animationFadeInUpClassAdd(animateFadeInUpElements);
+
+            } else {
+                elem.classList.remove("inView");
+
+                let animateLeft = elem.querySelectorAll(".animate-left");
+                animationLeftClassRemove(animateLeft);
+
+                let animateRightElements = elem.querySelectorAll(".animate-right");
+                animationRightClassRemove(animateRightElements);
+
+                let animateZoomElements = elem.querySelectorAll(".animate-zoom");
+                animationZoomClassRemove(animateZoomElements);
+                
+                let animateFadeInDownElements = elem.querySelectorAll(".animate-FadeInDown");
+                animationFadeInDownClassRemove(animateFadeInDownElements);
+
+                let animateFadeInUpElements = elem.querySelectorAll(".animate-FadeInUp");
+                animationFadeInUpClassRemove(animateFadeInUpElements);
+            }
+        }
+    }
+
+    fadeIn();
+
+    function animationLeftClassAdd(elements) {
+        elements.forEach((element) => {
+            element.classList.add("animate__slideInLeft");
+        });
+    }
+
+    function animationLeftClassRemove(elements) {
+        elements.forEach((element) => {
+            element.classList.remove("animate__slideInLeft");
+        });
+    }
+
+    function animationRightClassAdd(elements) {
+        elements.forEach((element) => {
+            element.classList.add("animate__slideInRight");
+        });
+    }
+
+    function animationRightClassRemove(elements) {
+        elements.forEach((element) => {
+            element.classList.remove("animate__slideInRight");
+        });
+    }
+
+    function animationZoomClassAdd(elements) {
+        elements.forEach((element) => {
+            element.classList.add("animate__zoomInDown");
+        });
+    }
+
+    function animationZoomClassRemove(elements) {
+        elements.forEach((element) => {
+            element.classList.remove("animate__zoomInDown");
+        });
+    }
+    
+    function animationFadeInDownClassAdd(elements) {
+        elements.forEach((element) => {
+            element.classList.add("animate__fadeInDown");
+        });
+    }
+
+    function animationFadeInDownClassRemove(elements) {
+        elements.forEach((element) => {
+            element.classList.remove("animate__fadeInDown");
+        });
+    }
+
+    function animationFadeInUpClassAdd(elements) {
+        elements.forEach((element) => {
+            element.classList.add("animate__fadeInUp");
+        });
+    }
+
+    function animationFadeInUpClassRemove(elements) {
+        elements.forEach((element) => {
+            element.classList.remove("animate__fadeInUp");
+        });
+    }
+</script>
+<style>
+    /*Css Animation*/
+    #app .c-section {
+        opacity: 0;
+        transition: 1000ms ease-out;
+    }
+
+    #app .c-section.inView {
+        opacity: 1;
+        transition: 1000ms ease-out;
+    }
+
+    /*Css Animation*/
+</style>
+<!-- FOR ANIMATIONS -->
+
+<!-- FORM CALENDAR -->
+<style>
+    .appointment_widgets-lg {
+        background: transparent !important;
+    }
+
+    .appointment_widgets-lg .appointment_widgets--booking .widgets-action-buttons .widgets-action button {
+        border-radius: 0 !important;
+        background: #BB1F3B !important;
+    }
+</style>
+
+<!-- FORM CALENDAR -->

@@ -1,0 +1,30 @@
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+<script>
+    let itemsFaqs = document.getElementsByClassName("itemFaq");
+    for (let i = 0; i < itemsFaqs.length; i++) {
+        let content = itemsFaqs[i].querySelectorAll(".c-paragraph")[0];
+        itemsFaqs[i].style.setProperty('height', '110px', 'important');
+        content.style.display = "none";
+
+        itemsFaqs[i].addEventListener("click", function () {
+
+            if (window.getComputedStyle(content).display === "none") {
+                itemsFaqs[i].style.setProperty('height', 'auto', 'important');
+                content.style.display = "block";
+            }
+            else {
+                itemsFaqs[i].style.setProperty('height', '110px', 'important');
+                content.style.display = "none";
+            }
+        });
+    }
+</script>
+
+<style>
+    @media (max-width:768px) {
+        .c-row {
+            padding-left: 15px !important;
+            padding-right: 15px !important;
+        }
+    }
+</style>

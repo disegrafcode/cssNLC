@@ -1,0 +1,137 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,600;1,700&display=swap');
+</style>
+<!-- swiper slider -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.2.3/swiper-bundle.css"
+    integrity="sha512-RDcDPFl1DiFz9e6nlScN4c+whvchUuQa920d9c00e4i48rWxOQDOcto24nztQz1By9hBfSI7TU6EpFXRv8HJcg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.2.3/swiper-bundle.min.js"
+    integrity="sha512-d3gZ3Oo0k2qZ8HJ3JNdmqH/YHjFj3qYaS7HQBhF6P6ohVKpCnUy3KovWTv0V9UBkO9Auo1uhPsIzNE5I4C/CpQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    let imagesContainers = document.getElementsByClassName("customSliderApp")[0];
+    let itemsImages = imagesContainers.querySelectorAll("img");
+    let deviceContainer = document.getElementsByClassName("customDevice")[0];
+    let imageDevice = deviceContainer.querySelector("img");
+
+    let innerHtmlSliderImages = ``;
+
+    for (let i = 0; i < itemsImages.length; i++) {
+        innerHtmlSliderImages += `<div class="swiper-slide">
+                                    <img src="${itemsImages[i].getAttribute("src")}" />
+                                 </div>`;
+    }
+
+    innerHtmlSliderImages = `
+                <img src="${imageDevice.getAttribute("src")}" class="deviceImage"/>
+                <div class="swiper swiperAppScreen">
+                    <div class="swiper-wrapper">
+                        ${innerHtmlSliderImages}
+                    </div>                    
+                </div>`;
+
+    imagesContainers.innerHTML = innerHtmlSliderImages;
+
+    let swiperAppScreen = new Swiper(".swiperAppScreen", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        loop: true,
+        autoplay: {
+            delay: 1000,
+            disableOnInteraction: false,
+        },
+        spaceBetween: 100,
+        coverflowEffect: {
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+        }
+    });
+</script>
+<style>
+    .swiperAppScreen .swiper-slide {
+        background-position: center;
+        background-size: cover;
+        max-width: 325px !important;
+        height: 685px !important;
+        border-radius: 40px;
+        overflow: hidden !important;
+    }
+
+    .swiperAppScreen .swiper-slide img {
+        display: block;
+        width: 100%;
+        max-width: 330px !important;
+    }
+
+    @media (max-width:350px) {
+        .swiperAppScreen .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            max-width: 325px !important;
+            height: 100% !important;
+            border-radius: 7%;
+            overflow: hidden !important;
+        }
+    }
+</style>
+<!-- swiper slider -->
+<!-- FAQ DROP ITEMS -->
+<script>
+    let containerFAQ_v2 = document.getElementById("customFAQ_v2");
+    let itemsFaqs = document.getElementsByClassName("itemFAQ_v2");
+    let btnsFAQ_v2 = document.getElementsByClassName("btnsFAQ_v2");
+
+    for (let i = 0; i < itemsFaqs.length; i++) {
+        itemsFaqs[i].classList.add("customFAQ_v2_ItemClose");
+        /*itemsFaqs[i].addEventListener("click", function () {
+
+            if (itemsFaqs[i].classList.contains('customFAQ_v2_ItemClose')) {
+                itemsFaqs[i].classList.remove('customFAQ_v2_ItemClose');
+            } else {
+                itemsFaqs[i].classList.add('customFAQ_v2_ItemClose');
+            }
+
+        });*/
+    }
+
+    for(let i=0; i<btnsFAQ_v2.length; i++)
+    {
+        btnsFAQ_v2[i].addEventListener("click", function () {
+            
+            let itemContent = document.getElementsByClassName("itemFAQv2_"+i)[0];
+
+            if (btnsFAQ_v2[i].classList.contains('btnsFAQ_v2_itemOpen')) {
+                btnsFAQ_v2[i].classList.add('btnsFAQ_v2_itemClose');
+                btnsFAQ_v2[i].classList.remove('btnsFAQ_v2_itemOpen');
+
+                itemContent.classList.add("customFAQ_v2_ItemClose");            
+
+            } else {
+                btnsFAQ_v2[i].classList.add('btnsFAQ_v2_itemOpen');
+                btnsFAQ_v2[i].classList.remove('btnsFAQ_v2_itemClose');
+                
+                itemContent.classList.remove("customFAQ_v2_ItemClose");
+            }
+
+        })
+    }
+</script>
+<!-- FAQ DROP ITEMS -->
+
+<!-- for calendar -->
+<style>
+    .appointment_widgets-xl {
+    padding-top: 20px!important;
+}
+@media screen and (min-height: 800px){
+.appointment_widgets-lg {
+    padding-top: 20px!important;
+}
+}
+</style>
+<!-- for calendar -->

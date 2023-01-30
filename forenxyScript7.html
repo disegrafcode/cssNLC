@@ -1,0 +1,202 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&family=Ubuntu:wght@300;400&display=swap');
+</style>
+
+<!-- swiper slider -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.2.3/swiper-bundle.css"
+    integrity="sha512-RDcDPFl1DiFz9e6nlScN4c+whvchUuQa920d9c00e4i48rWxOQDOcto24nztQz1By9hBfSI7TU6EpFXRv8HJcg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.2.3/swiper-bundle.min.js"
+    integrity="sha512-d3gZ3Oo0k2qZ8HJ3JNdmqH/YHjFj3qYaS7HQBhF6P6ohVKpCnUy3KovWTv0V9UBkO9Auo1uhPsIzNE5I4C/CpQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    let imagesContainers = document.getElementsByClassName("customSliderApp")[0];
+    let itemsImages = imagesContainers.querySelectorAll("img");
+    let deviceContainer = document.getElementsByClassName("customDevice")[0];
+    let imageDevice = deviceContainer.querySelector("img");
+
+    let innerHtmlSliderImages = ``;
+
+    for (let i = 0; i < itemsImages.length; i++) {
+        innerHtmlSliderImages += `<div class="swiper-slide">
+                                    <img src="${itemsImages[i].getAttribute("src")}" />
+                                 </div>`;
+    }
+
+    innerHtmlSliderImages = `
+                <img src="${imageDevice.getAttribute("src")}" class="deviceImage"/>
+                <div class="swiper swiperAppScreen">
+                    <div class="swiper-wrapper">
+                        ${innerHtmlSliderImages}
+                    </div>                    
+                </div>`;
+
+    imagesContainers.innerHTML = innerHtmlSliderImages;
+
+    let swiperAppScreen = new Swiper(".swiperAppScreen", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        loop: true,
+        autoplay: {
+            delay: 1000,
+            disableOnInteraction: false,
+        },
+        spaceBetween: 100,
+        coverflowEffect: {
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+        }
+    });
+</script>
+<style>
+    .swiperAppScreen .swiper-slide {
+        background-position: center;
+        background-size: cover;
+        max-width: 325px !important;
+        height: 685px !important;
+        border-radius: 40px;
+        overflow: hidden !important;
+    }
+
+    .swiperAppScreen .swiper-slide img {
+        display: block;
+        width: 100%;
+        max-width: 330px !important;
+    }
+
+    @media (max-width:350px) {
+        .swiperAppScreen .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            max-width: 325px !important;
+            height: 100% !important;
+            border-radius: 7%;
+            overflow: hidden !important;
+        }
+    }
+</style>
+<!-- swiper slider -->
+
+<!-- FAQ DROP ITEMS -->
+<script>
+    let itemsFaqs = document.getElementsByClassName("customFaqItem");
+    for (let i = 0; i < itemsFaqs.length; i++) {
+        itemsFaqs[i].classList.add("customFaqItemClose");
+        itemsFaqs[i].addEventListener("click", function () {
+
+            if (itemsFaqs[i].classList.contains('customFaqItemClose')) {
+                itemsFaqs[i].classList.remove('customFaqItemClose');
+            } else {
+                itemsFaqs[i].classList.add('customFaqItemClose');
+            }
+
+        });
+    }
+</script>
+<!-- FAQ DROP ITEMS -->
+
+
+
+
+<!-- FOR ANIMATIONS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script>
+
+    let elementsArray = document.querySelectorAll(
+        "#app .c-section:not(:last-child)"
+    );
+
+    window.addEventListener("scroll", fadeIn);
+    function fadeIn() {
+        for (var i = 0; i < elementsArray.length; i++) {
+            var elem = elementsArray[i];
+            var distInView =
+                elem.getBoundingClientRect().top - window.innerHeight + 150;
+
+            if (distInView < 0) {               
+
+                elem.classList.add("inView");  
+
+                let animateLeftElements = elem.querySelectorAll(".animate-left");
+                animationLeftClassAdd(animateLeftElements);
+
+                let animateRightElements = elem.querySelectorAll(".animate-right");
+                animationRightClassAdd(animateRightElements);
+
+                let animateZoomElements = elem.querySelectorAll(".animate-zoom");
+                animationZoomClassAdd(animateZoomElements);
+            } else {
+                elem.classList.remove("inView");
+
+                let animateLeft = elem.querySelectorAll(".animate-left");
+                animationLeftClassRemove(animateLeft);
+
+                let animateRightElements = elem.querySelectorAll(".animate-right");
+                animationRightClassRemove(animateRightElements);
+
+                let animateZoomElements = elem.querySelectorAll(".animate-zoom");
+                animationZoomClassRemove(animateZoomElements);
+            }
+        }
+    }
+
+    fadeIn();
+
+    function animationLeftClassAdd(elements) {
+        elements.forEach((element) => {
+            element.classList.add("animate__slideInLeft");
+        });
+    }
+
+    function animationLeftClassRemove(elements) {
+        elements.forEach((element) => {
+            element.classList.remove("animate__slideInLeft");
+        });
+    }
+
+    function animationRightClassAdd(elements) {
+        elements.forEach((element) => {
+            element.classList.add("animate__slideInRight");
+        });
+    }
+
+    function animationRightClassRemove(elements) {
+        elements.forEach((element) => {
+            element.classList.remove("animate__slideInRight");
+        });
+    }
+
+    function animationZoomClassAdd(elements) {
+        elements.forEach((element) => {
+            element.classList.add("animate__zoomInDown");
+        });
+    }
+
+    function animationZoomClassRemove(elements) {
+        elements.forEach((element) => {
+            element.classList.remove("animate__zoomInDown");
+        });
+    }
+</script>
+<style>
+    /*Css Animation*/
+    #app .c-section {
+        opacity: 0;
+        transition: 1000ms ease-out;
+    }
+
+    #app .c-section.inView {
+        opacity: 1;
+        transition: 1000ms ease-out;
+    }
+   
+    /*Css Animation*/
+</style>
+<!-- FOR ANIMATIONS -->
